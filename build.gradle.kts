@@ -51,6 +51,11 @@ extension {
             tweakerClass = "dev.extframework.extension.access.AccessTweaker"
         }
     }
+    metadata {
+        name = "Access tweaks"
+        description = "An internal API allowing developers access to private Minecraft packages."
+        developers.add("extframework")
+    }
 }
 
 publishing {
