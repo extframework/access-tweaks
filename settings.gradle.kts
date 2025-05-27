@@ -1,7 +1,6 @@
 pluginManagement {
     repositories {
         repositories {
-            mavenLocal()
             maven {
                 url = uri("https://maven.extframework.dev/releases")
             }
