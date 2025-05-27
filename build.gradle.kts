@@ -1,44 +1,32 @@
+import dev.extframework.core.main.main
 import dev.extframework.gradle.common.archives
 import dev.extframework.gradle.common.boot
 import dev.extframework.gradle.common.dm.jobs
+import dev.extframework.gradle.common.extFramework
 import dev.extframework.gradle.common.toolingApi
-import dev.extframework.gradle.extframework
 import dev.extframework.gradle.publish.ExtensionPublication
 import kotlin.jvm.java
 
 plugins {
     kotlin("jvm") version "2.0.21"
-    id("dev.extframework.mc") version "1.2.31"
-    id("dev.extframework.common") version "1.0.49"
+    id("dev.extframework") version "1.3.3"
+    id("dev.extframework.common") version "1.0.53"
 }
 
 group = "dev.extframework.extension"
-version = "1.0.1-BETA"
+version = "1.0.3-BETA"
 
 repositories {
     mavenCentral()
-    extframework()
+    extFramework()
     maven {
         url = uri("https://repo.extframework.dev/registry")
     }
-}
-
-tasks.launch {
-    targetNamespace.set("mojang:obfuscated")
+    mavenLocal()
 }
 
 extension {
-    extensions {
-        require("dev.extframework.integrations:fabric-mappings:1.0-BETA")
-        require("dev.extframework.extension:mcp-mappings:1.0.4-BETA")
-    }
     partitions {
-        main {
-            extensionClass = "dev.extframework.extension.access.AccessTweaks"
-            dependencies {
-                implementation("dev.extframework.core:entrypoint:1.0-BETA")
-            }
-        }
         tweaker {
             dependencies {
                 implementation("dev.extframework.core:minecraft-api:1.0-BETA")
@@ -50,11 +38,18 @@ extension {
             }
             tweakerClass = "dev.extframework.extension.access.AccessTweaker"
         }
+        main {
+            extensionClass = "dev.extframework.extension.access.AccessTweaks"
+            dependencies {
+                implementation("dev.extframework.core:entrypoint:1.0-BETA")
+            }
+        }
     }
     metadata {
         name = "Access tweaks"
         description = "An internal API allowing developers access to private Minecraft packages."
         developers.add("extframework")
+        app = "minecraft"
     }
 }
 
