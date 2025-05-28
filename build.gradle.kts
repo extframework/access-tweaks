@@ -1,11 +1,6 @@
 import dev.extframework.core.main.main
-import dev.extframework.gradle.common.archives
-import dev.extframework.gradle.common.boot
-import dev.extframework.gradle.common.dm.jobs
 import dev.extframework.gradle.common.extFramework
-import dev.extframework.gradle.common.toolingApi
 import dev.extframework.gradle.publish.ExtensionPublication
-import kotlin.jvm.java
 
 plugins {
     kotlin("jvm") version "2.0.21"
@@ -22,20 +17,12 @@ repositories {
     maven {
         url = uri("https://repo.extframework.dev/registry")
     }
-    mavenLocal()
 }
 
 extension {
     partitions {
         tweaker {
-            dependencies {
-                implementation("dev.extframework.core:minecraft-api:1.0-BETA")
-                implementation("dev.extframework.core:app-api:1.0-BETA")
-                toolingApi()
-                jobs()
-                archives()
-                boot()
-            }
+            dependencies {}
             tweakerClass = "dev.extframework.extension.access.AccessTweaker"
         }
         main {
