@@ -4,12 +4,12 @@ import dev.extframework.gradle.publish.ExtensionPublication
 
 plugins {
     kotlin("jvm") version "2.0.21"
-    id("dev.extframework") version "1.3.3"
-    id("dev.extframework.common") version "1.0.53"
+    id("dev.extframework") version "1.4"
+    id("dev.extframework.common") version "1.1"
 }
 
 group = "dev.extframework.extension"
-version = "1.0.3-BETA"
+version = "1.0.4-BETA"
 
 repositories {
     mavenCentral()
@@ -22,14 +22,10 @@ repositories {
 extension {
     partitions {
         tweaker {
-            dependencies {}
             tweakerClass = "dev.extframework.extension.access.AccessTweaker"
         }
         main {
             extensionClass = "dev.extframework.extension.access.AccessTweaks"
-            dependencies {
-                implementation("dev.extframework.core:entrypoint:1.0-BETA")
-            }
         }
     }
     metadata {
