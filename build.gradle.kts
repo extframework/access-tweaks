@@ -1,15 +1,16 @@
 import dev.extframework.core.main.main
 import dev.extframework.gradle.common.extFramework
+import dev.extframework.gradle.common.gradlePluginApi
 import dev.extframework.gradle.publish.ExtensionPublication
 
 plugins {
     kotlin("jvm") version "2.0.21"
-    id("dev.extframework") version "1.4"
-    id("dev.extframework.common") version "1.1"
+    id("dev.extframework") version "1.4.1"
+    id("dev.extframework.common") version "1.1.1"
 }
 
 group = "dev.extframework.extension"
-version = "1.0.4-BETA"
+version = "1.0.6-BETA"
 
 repositories {
     mavenCentral()
@@ -26,6 +27,12 @@ extension {
         }
         main {
             extensionClass = "dev.extframework.extension.access.AccessTweaks"
+        }
+        gradle {
+            entrypointClass = "dev.extframework.extension.access.AccessGradleEntrypoint"
+            dependencies {
+                implementation(gradlePluginApi())
+            }
         }
     }
     metadata {

@@ -15,9 +15,9 @@ class AccessTweaker : EnvironmentTweaker {
             // TODO Hacky
             val version = environment.minecraft.version
             environment += if (version != "1.8.9") {
-                ValueAttribute(MappingNamespace("mojang", "deobfuscated"), mappingTargetAttrKey)
+                ValueAttribute(mappingTargetAttrKey,MappingNamespace("mojang", "deobfuscated"))
             } else {
-                ValueAttribute(MappingNamespace("mcp-legacy", "deobfuscated"), mappingTargetAttrKey)
+                ValueAttribute(mappingTargetAttrKey,MappingNamespace("mcp-legacy", "deobfuscated"))
             }
         }
 
