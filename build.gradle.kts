@@ -25,9 +25,6 @@ extension {
         tweaker {
             tweakerClass = "com.kaolinmc.extension.access.AccessTweaker"
         }
-        main {
-            extensionClass = "com.kaolinmc.extension.access.AccessTweaks"
-        }
         gradle {
             entrypointClass = "com.kaolinmc.extension.access.AccessGradleEntrypoint"
             dependencies {
