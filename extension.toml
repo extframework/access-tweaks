@@ -1,3 +1,3 @@
 [parents]
-minecraft = { group = "dev.extframework.core", version = "1.0.6-BETA", use = "central" }
-mcp-mappings = {group = "dev.extframework.extension", version = "1.0.7-BETA", use = "central"}
+minecraft = { group = "com.kaolinmc.core", version = "1.0.7-BETA", use = "central" }
+mcp-mappings = {group = "com.kaolinmc.extension", version = "1.0.7-BETA", use = "central"}

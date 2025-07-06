@@ -1,6 +1,6 @@
-package dev.extframework.extension.access
+package com.kaolinmc.extension.access
 
-import dev.extframework.core.instrument.InstrumentAgent
+import com.kaolinmc.core.instrument.InstrumentAgent
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.tree.ClassNode
 

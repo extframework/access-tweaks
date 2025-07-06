@@ -1,12 +1,12 @@
-package dev.extframework.extension.access
+package com.kaolinmc.extension.access
 
-import dev.extframework.core.instrument.instrumentAgentsAttrKey
-import dev.extframework.core.minecraft.api.MappingNamespace
-import dev.extframework.core.minecraft.environment.mappingTargetAttrKey
-import dev.extframework.core.minecraft.environment.minecraft
-import dev.extframework.tooling.api.environment.ExtensionEnvironment
-import dev.extframework.tooling.api.environment.ValueAttribute
-import dev.extframework.tooling.api.tweaker.EnvironmentTweaker
+import com.kaolinmc.core.instrument.instrumentAgentsAttrKey
+import com.kaolinmc.core.minecraft.api.MappingNamespace
+import com.kaolinmc.core.minecraft.environment.mappingTargetAttrKey
+import com.kaolinmc.core.minecraft.environment.minecraft
+import com.kaolinmc.tooling.api.environment.ExtensionEnvironment
+import com.kaolinmc.tooling.api.environment.ValueAttribute
+import com.kaolinmc.tooling.api.tweaker.EnvironmentTweaker
 
 class AccessTweaker : EnvironmentTweaker {
     override fun tweak(environment: ExtensionEnvironment) {

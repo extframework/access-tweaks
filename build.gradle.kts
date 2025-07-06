@@ -1,35 +1,35 @@
-import dev.extframework.core.main.main
-import dev.extframework.gradle.common.extFramework
-import dev.extframework.gradle.common.gradlePluginApi
-import dev.extframework.gradle.publish.ExtensionPublication
+import com.kaolinmc.core.main.main
+import com.kaolinmc.gradle.common.*
+import com.kaolinmc.gradle.common.gradlePluginApi
+import com.kaolinmc.kiln.publish.ExtensionPublication
 
 plugins {
     kotlin("jvm") version "2.0.21"
-    id("dev.extframework") version "1.4.1"
-    id("dev.extframework.common") version "1.1.1"
+    id("kaolin.kiln") version "0.1"
+    id("com.kaolinmc.common") version "0.1"
 }
 
-group = "dev.extframework.extension"
+group = "com.kaolinmc.extension"
 version = "1.0.6-BETA"
 
 repositories {
     mavenCentral()
-    extFramework()
+    kaolin()
     maven {
-        url = uri("https://repo.extframework.dev/registry")
+        url = uri("https://repo.kaolinmc.com/registry")
     }
 }
 
 extension {
     partitions {
         tweaker {
-            tweakerClass = "dev.extframework.extension.access.AccessTweaker"
+            tweakerClass = "com.kaolinmc.extension.access.AccessTweaker"
         }
         main {
-            extensionClass = "dev.extframework.extension.access.AccessTweaks"
+            extensionClass = "com.kaolinmc.extension.access.AccessTweaks"
         }
         gradle {
-            entrypointClass = "dev.extframework.extension.access.AccessGradleEntrypoint"
+            entrypointClass = "com.kaolinmc.extension.access.AccessGradleEntrypoint"
             dependencies {
                 implementation(gradlePluginApi())
             }
@@ -38,7 +38,7 @@ extension {
     metadata {
         name = "Access tweaks"
         description = "An internal API allowing developers access to private Minecraft packages."
-        developers.add("extframework")
+        developers.add("kaolin")
         app = "minecraft"
     }
 }
@@ -49,7 +49,7 @@ publishing {
     }
     repositories {
         maven {
-            url = uri("https://repo.extframework.dev")
+            url = uri("https://repo.kaolinmc.com")
             credentials {
                 password = properties["creds.ext.key"] as? String
             }

@@ -1,8 +1,8 @@
-package dev.extframework.extension.access
+package com.kaolinmc.extension.access
 
-import dev.extframework.gradle.api.ExtframeworkExtension
-import dev.extframework.gradle.api.GradleEntrypoint
-import dev.extframework.minecraft.MinecraftGradleEntrypoint
+import com.kaolinmc.gradle.api.ExtframeworkExtension
+import com.kaolinmc.gradle.api.GradleEntrypoint
+import com.kaolinmc.minecraft.MinecraftGradleEntrypoint
 
 class AccessGradleEntrypoint : GradleEntrypoint {
     override suspend fun configure(
